@@ -1,7 +1,5 @@
 const getIpAPI = async () => {
-  console.log('I am here')
-  console.log(process.env.TOKEN)
-  const response = await fetch(`https://ipinfo.io/json?token=${process.env.TOKEN}`)
+  const response = await fetch(`https://ipinfo.io/json?token=${TOKEN}`)
   if (response.status == 200) {
     const data = await response.json()
     const {country,region,city} = data
@@ -24,7 +22,7 @@ const getCountryAPI = async (code) => {
   }
 }
 const getWeatherAPI = async (city) => {
-const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_KEY}`)
+const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_KEY}`)
   if (response.status == 200) {
     const data = await response.json()
     const {main, weather} = data
