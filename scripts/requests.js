@@ -2,41 +2,71 @@ const getIpAPI = async () => {
   const response = await fetch(`https://ipinfo.io/json?token=1a1b17c13895ac`)
   if (response.status == 200) {
     const data = await response.json()
-    const {country,region,city} = data
-    return {country,region,city}
-  }
-  else {
+    const {
+      country,
+      region,
+      city
+    } = data
+    return {
+      country,
+      region,
+      city
+    }
+  } else {
     throw new Error('Unable to fetch ip Info')
   }
 }
 
-const getCountryAPI = async (code) => { 
- const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
+const getCountryAPI = async (code) => {
+  const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
   if (response.status == 200) {
     const data = await response.json()
-    const {name,capital} = data
-    return {name,capital}
-  }
-  else {
+    const {
+      name,
+      capital
+    } = data
+    return {
+      name,
+      capital
+    }
+  } else {
     throw new Error('Unable to fetch countries data')
   }
 }
 const getWeatherAPI = async (city) => {
-const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=df4d9fcd15cf1be76f0c86efcafb54b4`)
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=df4d9fcd15cf1be76f0c86efcafb54b4`)
   if (response.status == 200) {
     const data = await response.json()
-    const {main, weather} = data
-    return {main,weather}
-  }
-  else {
+    const {
+      main,
+      weather
+    } = data
+    return {
+      main,
+      weather
+    }
+  } else {
     throw new Error('Unable to fetch weather data')
   }
 }
 const getData = async () => {
   const ip = await getIpAPI()
-  const {country,region,city} = ip
+  const {
+    country,
+    region,
+    city
+  } = ip
   const countries = await getCountryAPI(country)
-  const {name,capital} = countries
+  const {
+    name,
+    capital
+  } = countries
   const weather = await getWeatherAPI(city.toLowerCase())
-  return {name,capital,region,city,weather}
+  return {
+    name,
+    capital,
+    region,
+    city,
+    weather
+  }
 }

@@ -1,6 +1,6 @@
 class CityInfo {
   constructor(cityInfo) {
-     this.cityInfo = cityInfo
+    this.cityInfo = cityInfo
   }
   get city() {
     return this.cityInfo.city
@@ -16,15 +16,23 @@ class CityInfo {
   }
   get temperature() {
     const weather = this.cityInfo.weather
-    const {main} = weather
-    const { temp } = main
-    const temperature = (temp-273).toFixed(1)
-    return temperature+'&#8451';
+    const {
+      main
+    } = weather
+    const {
+      temp
+    } = main
+    const temperature = (temp - 273).toFixed(1)
+    return temperature + '&#8451';
   }
   get humidity() {
     const main = this.cityInfo.weather
-    const { weather } = main
-    const { description } = weather[0]
+    const {
+      weather
+    } = main
+    const {
+      description
+    } = weather[0]
     return description
   }
 }
@@ -34,6 +42,6 @@ const getCityInfo = async () => {
   await getData().then((data) => {
     cityInfo = new CityInfo(data)
   }).catch(error => {
-   weather.innerHTML = `<h2>Unable to fetch the data</h2>`
-})
+    weather.innerHTML = `<h2>Unable to fetch the data</h2>`
+  })
 }

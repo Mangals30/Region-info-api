@@ -14,4 +14,3 @@ const getCityData = async () => {
   weather.innerHTML = data
 }
 getCityData()
-
