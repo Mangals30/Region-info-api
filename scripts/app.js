@@ -13,6 +13,5 @@ const getCityData = async () => {
     <h3>Weather description: ${cityInfo.humidity}</h3>`
   weather.innerHTML = data
 }
-console.log(process.env.token)
 getCityData()
 
