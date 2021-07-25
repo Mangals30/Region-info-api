@@ -1,4 +1,6 @@
 const getIpAPI = async () => {
+  console.log('I am here')
+  console.log(process.env.TOKEN)
   const response = await fetch(`https://ipinfo.io/json?token=${process.env.TOKEN}`)
   if (response.status == 200) {
     const data = await response.json()
