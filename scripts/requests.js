@@ -1,5 +1,6 @@
 const getIpAPI = async () => {
-const response = await fetch(`https://ipinfo.io/json?token=${token}`)
+  console.log(process.env.token)
+const response = await fetch(`https://ipinfo.io/json?token=${process.env.token}`)
   if (response.status == 200) {
     const data = await response.json()
     const {country,region,city} = data
@@ -11,7 +12,7 @@ const response = await fetch(`https://ipinfo.io/json?token=${token}`)
 }
 
 const getCountryAPI = async (code) => { 
- const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${code}`)
+ const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${process.env.weatherKey}`)
   if (response.status == 200) {
     const data = await response.json()
     const {name,capital} = data

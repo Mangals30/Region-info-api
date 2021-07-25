@@ -5,7 +5,6 @@ let cityInfo
 
 const getCityData = async () => {
   await getCityInfo()
-  console.log(cityInfo.city)
   const data = `<h3>City: ${cityInfo.city}</h3>
     <h3>Region: ${cityInfo.region}</h3>
     <h3>Country: ${cityInfo.country}</h3>
@@ -14,5 +13,6 @@ const getCityData = async () => {
     <h3>Weather description: ${cityInfo.humidity}</h3>`
   weather.innerHTML = data
 }
+console.log(process.env.token)
 getCityData()
 
